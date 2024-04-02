@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Alumno {
@@ -14,8 +16,11 @@ public class Alumno {
         return materiasAprobadas;
     }
 
-    public void setMateriasAprobadas(List<Materia> materiasAprobadas) {
-        this.materiasAprobadas = materiasAprobadas;
+    public Alumno() {
+        this.materiasAprobadas = new ArrayList<>();
     }
 
+    public void aprobarMaterias(Materia ... materias){
+        Collections.addAll(this.materiasAprobadas, materias);
+    }
 }

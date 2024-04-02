@@ -1,6 +1,8 @@
 package domain;
 
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Materia {
@@ -14,9 +16,14 @@ public class Materia {
         return correlativas;
     }
 
-    public void setCorrelativas(List<Materia> correlativas) {
-        this.correlativas = correlativas;
+    public Materia() {
+        this.correlativas = new ArrayList<>();
     }
+
+    public void agregarCorrelativas(Materia ... materias){
+        Collections.addAll(this.correlativas, materias);
+    }
+
 
 
 }

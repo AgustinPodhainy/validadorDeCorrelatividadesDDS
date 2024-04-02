@@ -1,29 +1,37 @@
 package domain;
 
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Inscripcion {
    private Alumno alumnoAInscribir;
    private List<Materia> materiasSolicitadas;
 
-   private boolean aprobada(){
+   public boolean aprobada(){
       return alumnoAInscribir.cumpleCorrelatividades(materiasSolicitadas);
    }
 
-   public Alumno getAlumno() {
+   public Inscripcion(Alumno alumnoAInscribir, List<Materia> materiasSolicitadas) {
+      this.alumnoAInscribir = alumnoAInscribir;
+      this.materiasSolicitadas = materiasSolicitadas;
+   }
+
+   public Inscripcion() {
+      this.alumnoAInscribir = new Alumno();
+      this.materiasSolicitadas = new ArrayList<>();
+   }
+
+   public void agregarMateriasSolicitadas(Materia ... materias){
+      Collections.addAll(this.materiasSolicitadas, materias);
+   }
+
+   public Alumno getAlumnoAInscribir() {
       return alumnoAInscribir;
    }
 
-   public void setAlumno(Alumno alumno) {
-      this.alumnoAInscribir = alumno;
-   }
-
-   public List<Materia> getMateriasSolicitadas() {
-      return materiasSolicitadas;
-   }
-
-   public void setMateriasSolicitadas(List<Materia> materiasSolicitadas) {
-      this.materiasSolicitadas = materiasSolicitadas;
+   public void setAlumnoAInscribir(Alumno alumnoAInscribir) {
+      this.alumnoAInscribir = alumnoAInscribir;
    }
 }
